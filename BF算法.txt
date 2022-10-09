@@ -1,0 +1,16 @@
+public int IndexOfBF(String S,String T,int pos){
+	char []a = S.toCharArray();
+	char []b = T.toCharArray();
+	int i=pos;int j=0;
+	while(i<S.length() && j<T.length()){
+		if(a[i]==b[j]){	//	继续比较
+			i++;j++;
+		}
+		else{	//i后退重新匹配
+			i=i-j+1;j=0;
+		}
+	}
+	if(j>=T.length()) //匹配成功
+		return i-T.length();
+	else	//匹配失败
+		return 0;
